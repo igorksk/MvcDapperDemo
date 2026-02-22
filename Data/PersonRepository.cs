@@ -4,14 +4,9 @@ using MvcDapperDemo.Models;
 
 namespace MvcDapperDemo.Data;
 
-public class PersonRepository
+public class PersonRepository(string connectionString)
 {
-    private readonly string _connectionString;
-
-    public PersonRepository(string connectionString)
-    {
-        _connectionString = connectionString;
-    }
+    private readonly string _connectionString = connectionString;
 
     private SqliteConnection Connection() => new(_connectionString);
 

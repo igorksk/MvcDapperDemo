@@ -4,14 +4,9 @@ using MvcDapperDemo.Models;
 
 namespace MvcDapperDemo.Controllers;
 
-public class PeopleController : Controller
+public class PeopleController(PersonRepository repo) : Controller
 {
-    private readonly PersonRepository _repo;
-
-    public PeopleController(PersonRepository repo)
-    {
-        _repo = repo;
-    }
+    private readonly PersonRepository _repo = repo;
 
     public async Task<IActionResult> Index()
     {
