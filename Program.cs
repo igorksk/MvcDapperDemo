@@ -17,7 +17,7 @@ using (var scope = app.Services.CreateScope())
     var cmd = conn.CreateCommand();
     cmd.CommandText = @"CREATE TABLE IF NOT EXISTS People (
         Id INTEGER PRIMARY KEY AUTOINCREMENT,
-        Name TEXT NULL,
+        Name TEXT NOT NULL,
         Age INTEGER NOT NULL
     );";
     cmd.ExecuteNonQuery();
