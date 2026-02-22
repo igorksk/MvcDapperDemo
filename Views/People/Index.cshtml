@@ -1,0 +1,35 @@
+@model IEnumerable<MvcDapperDemo.Models.Person>
+
+@{
+    ViewData["Title"] = "People";
+}
+
+<div class="d-flex justify-content-between mb-3">
+    <h2>People</h2>
+    <a class="btn btn-primary" asp-action="Create">Create</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var p in Model)
+{
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Name</td>
+            <td>@p.Age</td>
+            <td>
+                <a class="btn btn-sm btn-secondary" asp-action="Edit" asp-route-id="@p.Id">Edit</a>
+                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@p.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
